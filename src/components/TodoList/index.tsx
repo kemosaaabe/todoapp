@@ -1,17 +1,15 @@
+import { useSelector, useDispatch } from "react-redux";
+
 import Input from "../../ui/Input";
 import FilterButton from "../../ui/FilterButton";
 import Todo from "./Todo";
+import type { RootState } from "../../app/store";
 
 import styles from "./styles.module.css";
 
 const TodoList = () => {
-  const todos = [
-    { id: 1, title: "Покакать", completed: true },
-    { id: 2, title: "Пописеть" },
-    { id: 3, title: "Покакать" },
-    { id: 4, title: "Покакать" },
-    { id: 5, title: "Покакать" },
-  ];
+  const todos = useSelector((state: RootState) => state.todos.todos);
+  const dispatch = useDispatch();
 
   return (
     <div className={styles.todolist}>

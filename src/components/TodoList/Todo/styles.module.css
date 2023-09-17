@@ -9,6 +9,11 @@
   cursor: pointer;
 }
 
+.todoCompleted {
+  color: var(--color-grey);
+  text-decoration: line-through;
+}
+
 .checkbox {
   width: 25px;
   height: 25px;

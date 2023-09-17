@@ -9,7 +9,7 @@ interface TodoProps {
 
 const Todo: FC<TodoProps> = ({ children, completed }) => {
   return (
-    <li className={styles.todo}>
+    <li className={`${styles.todo} ${completed && styles.todoCompleted}`}>
       <div className={`${styles.checkbox} ${completed && styles.checked}`}>
         {completed && <img src="/assets/svg/check.svg" />}
       </div>

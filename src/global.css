@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;600;700&family=Merriweather:wght@400;700&display=swap");
+
+:root {
+  /* Sizes */
+  --max-width: 1200px;
+
+  /* Spacing */
+  --space-10: 0.625rem;
+  --space-20: 1.25rem;
+  --space-25: 1.563rem;
+  --space-30: 1.875rem;
+
+  /* Font Family */
+  --font-sans: "Manrope", sans-serif;
+  --font-serif: "Merriweather", serif;
+
+  /* Font Size */
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.5rem;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-grey: #e0e0e0;
+  --primary-color: #5d3aa2;
+  --secondary-color: #f1f1f1;
+
+  /* Border Radius */
+  --rounded-sm: 0.625rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0 var(--space-30);
+
+  font-family: var(--font-sans);
+
+  background-color: var(--secondary-color);
+}
+
+/* @media (max-width: 768px) {
+  html {
+    font-size: 62.5%;
+  }
+} */

@@ -1,0 +1,26 @@
+.todo {
+  padding: var(--space-10) 0;
+  display: flex;
+  align-items: center;
+
+  font-size: var(--text-md);
+
+  border-bottom: 1px solid var(--secondary-color);
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 25px;
+  height: 25px;
+  margin-right: var(--space-10);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+}
+
+.checked {
+  background-color: var(--primary-color);
+}

@@ -1,0 +1,19 @@
+.input {
+  width: 100%;
+  padding: var(--space-10) 0;
+
+  font-size: var(--text-md);
+  font-family: var(--font-sans);
+  text-align: center;
+
+  border: none;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.input:focus {
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--color-grey);
+}

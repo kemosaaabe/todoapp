@@ -5,7 +5,11 @@ import Input from "../../ui/Input";
 import FilterButton from "../../ui/FilterButton";
 import Todo from "./Todo";
 import type { RootState } from "../../app/store";
-import { addTodo } from "../../features/todos/todosSlice";
+import {
+  addTodo,
+  completeTodo,
+  removeTodo,
+} from "../../features/todos/todosSlice";
 
 import styles from "./styles.module.css";
 
@@ -14,12 +18,28 @@ const TodoList = () => {
   const dispatch = useDispatch();
 
   const [newTodo, setNewTodo] = React.useState("");
+  const [searchValue, setSearchValue] = React.useState("");
+  const [activeBtn, setActiveBtn] = React.useState(1);
+
+  const filterBtns = [
+    { id: 1, title: "Все" },
+    { id: 2, title: "Активные" },
+    { id: 3, title: "Завершенные" },
+  ];
 
   const handleAddTodo = () => {
     if (!newTodo) return;
 
     setNewTodo("");
     dispatch(addTodo(newTodo));
+  };
+
+  const handleToggleTodo = (id: number) => {
+    dispatch(completeTodo(id));
+  };
+
+  const handleRemoveTodo = (id: number) => {
+    dispatch(removeTodo(id));
   };
 
   return (
@@ -30,18 +50,48 @@ const TodoList = () => {
           placeholder="С чего начнем сегодня?"
           value={newTodo}
           onChange={(e) => setNewTodo(e.currentTarget.value)}
-          handleAddTodo={handleAddTodo}
+          onKeyDown={handleAddTodo}
         />
       </div>
-      <div className={styles.filterBtns}>
-        <FilterButton active>Все</FilterButton>
-        <FilterButton>Активные</FilterButton>
-        <FilterButton>Завершенные</FilterButton>
-      </div>
+      {todos.length > 0 && (
+        <div className={styles.filterBtns}>
+          {filterBtns.map((btn) => (
+            <FilterButton
+              key={btn.id}
+              active={btn.id === activeBtn && true}
+              onClick={() => setActiveBtn(btn.id)}
+            >
+              {btn.title}
+            </FilterButton>
+          ))}
+        </div>
+      )}
       <ul className={styles.todos}>
-        {todos.map((todo) => (
-          <Todo completed={todo.completed}>{todo.title}</Todo>
-        ))}
+        {todos
+          .filter((todo) => {
+            switch (activeBtn) {
+              case 2:
+                return !todo.completed;
+              case 3:
+                return todo.completed;
+              default:
+                return todo;
+            }
+          })
+          .map((todo) => (
+            <Todo
+              key={todo.id}
+              completed={todo.completed}
+              onTodoClick={() => {
+                handleToggleTodo(todo.id);
+              }}
+              onTodoRemove={() => {
+                handleRemoveTodo(todo.id);
+              }}
+            >
+              {todo.title}
+            </Todo>
+          ))}
       </ul>
     </div>
   );

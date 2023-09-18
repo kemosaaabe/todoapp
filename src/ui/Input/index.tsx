@@ -6,15 +6,10 @@ interface InputProps {
   placeholder?: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleAddTodo: () => void;
+  onKeyDown?: () => void;
 }
 
-const Input: FC<InputProps> = ({
-  placeholder,
-  value,
-  onChange,
-  handleAddTodo,
-}) => {
+const Input: FC<InputProps> = ({ placeholder, value, onChange, onKeyDown }) => {
   return (
     <input
       className={styles.input}
@@ -24,7 +19,7 @@ const Input: FC<InputProps> = ({
       onChange={onChange}
       onKeyDown={(e) => {
         if (e.key === "Enter") {
-          handleAddTodo();
+          onKeyDown?.();
         }
       }}
     />

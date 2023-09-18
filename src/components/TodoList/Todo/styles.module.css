@@ -1,11 +1,25 @@
 .todo {
-  padding: var(--space-10) 0;
-  display: flex;
-  align-items: center;
+  position: relative;
 
   font-size: var(--text-md);
+}
+
+.todoInner {
+  display: flex;
+  align-items: center;
+  padding: var(--space-10) 0;
 
   border-bottom: 1px solid var(--secondary-color);
+
+  cursor: pointer;
+}
+
+.todoRemove {
+  position: absolute;
+  top: 50%;
+  right: 0;
+
+  transform: translate(135%, -50%);
   cursor: pointer;
 }
 
@@ -24,6 +38,8 @@
 
   border: 1px solid var(--primary-color);
   border-radius: 5px;
+
+  user-select: none;
 }
 
 .checked {

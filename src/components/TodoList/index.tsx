@@ -18,7 +18,6 @@ const TodoList = () => {
   const dispatch = useDispatch();
 
   const [newTodo, setNewTodo] = React.useState("");
-  const [searchValue, setSearchValue] = React.useState("");
   const [activeBtn, setActiveBtn] = React.useState(1);
 
   const filterBtns = [

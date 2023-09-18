@@ -19,7 +19,7 @@ const Todo: FC<TodoProps> = ({
     <li className={`${styles.todo} ${completed && styles.todoCompleted}`}>
       <div className={styles.todoInner} onClick={onTodoClick}>
         <div className={`${styles.checkbox} ${completed && styles.checked}`}>
-          {completed && <img src="/assets/svg/check.svg" />}
+          {completed && <img src="/assets/svg/check.svg" alt="check" />}
         </div>
         {children}
       </div>

@@ -22,14 +22,14 @@ const Todo: FC<TodoProps> = ({
     >
       <div className={styles.todoInner} onClick={onTodoClick}>
         <div className={`${styles.checkbox} ${completed && styles.checked}`}>
-          {completed && <img src="/assets/svg/check.svg" alt="check" />}
+          {completed && <img src="assets/svg/check.svg" alt="check" />}
         </div>
         {children}
       </div>
       <img
         onClick={onTodoRemove}
         className={styles.todoRemove}
-        src="/assets/svg/remove.svg"
+        src="assets/svg/remove.svg"
         alt="remove"
         data-testid="remove-btn"
       />

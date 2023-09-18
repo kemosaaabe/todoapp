@@ -44,8 +44,14 @@ body {
   background-color: var(--secondary-color);
 }
 
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
   html {
-    font-size: 62.5%;
+    font-size: 82.5%;
   }
-} */
+}
+
+@media (max-width: 360px) {
+  html {
+    font-size: 72.5%;
+  }
+}

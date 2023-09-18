@@ -24,6 +24,12 @@
   width: 50%;
 }
 
+@media (max-width: 768px) {
+  .field {
+    width: 100%;
+  }
+}
+
 .filterBtns {
   display: flex;
   flex-wrap: wrap;

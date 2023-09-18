@@ -16,7 +16,10 @@ const Todo: FC<TodoProps> = ({
   onTodoRemove,
 }) => {
   return (
-    <li className={`${styles.todo} ${completed && styles.todoCompleted}`}>
+    <li
+      className={`${styles.todo} ${completed && styles.todoCompleted}`}
+      data-testid="todo-element"
+    >
       <div className={styles.todoInner} onClick={onTodoClick}>
         <div className={`${styles.checkbox} ${completed && styles.checked}`}>
           {completed && <img src="/assets/svg/check.svg" alt="check" />}
@@ -28,6 +31,7 @@ const Todo: FC<TodoProps> = ({
         className={styles.todoRemove}
         src="/assets/svg/remove.svg"
         alt="remove"
+        data-testid="remove-btn"
       />
     </li>
   );
